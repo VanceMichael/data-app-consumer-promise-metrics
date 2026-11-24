@@ -1,0 +1,17 @@
+[
+  {
+    "id": "s1",
+    "head": "h1",
+    "district": "东圈"
+  },
+  {
+    "id": "s2",
+    "head": "h1",
+    "district": "东圈"
+  },
+  {
+    "id": "s3",
+    "head": "h2",
+    "district": "西圈"
+  }
+]

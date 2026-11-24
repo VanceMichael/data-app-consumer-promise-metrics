@@ -1,0 +1,39 @@
+[
+  {
+    "id": "m1",
+    "concept": "退款解决",
+    "numerator": "有效退款到账",
+    "denominator": "适用退款请求",
+    "time_basis": "进入日",
+    "dimensions": [
+      "渠道",
+      "责任门店",
+      "金额层"
+    ],
+    "effective_day": 1
+  },
+  {
+    "id": "m2",
+    "concept": "退款解决",
+    "numerator": "消费者确认到账且无未决争议",
+    "denominator": "适用退款请求",
+    "time_basis": "进入日",
+    "dimensions": [
+      "渠道",
+      "责任门店",
+      "金额层"
+    ],
+    "effective_day": 31
+  },
+  {
+    "id": "m3",
+    "concept": "调解完成",
+    "numerator": "调解结项",
+    "denominator": "适用调解请求",
+    "time_basis": "进入日",
+    "dimensions": [
+      "责任门店"
+    ],
+    "effective_day": 1
+  }
+]

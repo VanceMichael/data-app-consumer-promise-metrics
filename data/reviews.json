@@ -1,0 +1,16 @@
+[
+  {
+    "id": "v1",
+    "target": "e2",
+    "kind": "回执撤销",
+    "finding": "原支付流水引用错误，到账待核",
+    "known_day": 40
+  },
+  {
+    "id": "v2",
+    "target": "q2",
+    "kind": "门店更正",
+    "finding": "责任门店为s1",
+    "known_day": 41
+  }
+]

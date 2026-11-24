@@ -1,0 +1,250 @@
+{
+  "format_version": 1,
+  "synthetic": true,
+  "tables": {
+    "shops": {
+      "description": "独立门店归总店",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "门店"
+        },
+        "head": {
+          "type": "string",
+          "description": "总店"
+        },
+        "district": {
+          "type": "string",
+          "description": "商圈"
+        }
+      },
+      "refs": {}
+    },
+    "promises": {
+      "description": "承诺各自适用，不预置判定结果",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "承诺"
+        },
+        "shop": {
+          "type": "string",
+          "description": "门店"
+        },
+        "kind": {
+          "type": "string",
+          "description": "退款时效或调解服务"
+        },
+        "channel": {
+          "type": "string",
+          "description": "适用渠道"
+        },
+        "start_day": {
+          "type": "integer",
+          "description": "起"
+        },
+        "end_day": {
+          "type": "integer",
+          "description": "止"
+        },
+        "deadline_days": {
+          "type": "integer",
+          "description": "时限"
+        },
+        "goods_state": {
+          "type": "string",
+          "description": "允许商品状态"
+        }
+      },
+      "refs": {
+        "shop": "shops.id"
+      }
+    },
+    "requests": {
+      "description": "同消费请求可能多次联系；编号保留实际来源",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "记录"
+        },
+        "request": {
+          "type": "string",
+          "description": "独立消费请求"
+        },
+        "shop": {
+          "type": "string",
+          "description": "责任门店"
+        },
+        "handling_shop": {
+          "type": "string",
+          "description": "办理门店"
+        },
+        "purchase_day": {
+          "type": "integer",
+          "description": "消费日"
+        },
+        "entered_day": {
+          "type": "integer",
+          "description": "进入日"
+        },
+        "channel": {
+          "type": "string",
+          "description": "渠道"
+        },
+        "goods_state": {
+          "type": "string",
+          "description": "商品状态"
+        },
+        "amount_cents": {
+          "type": "integer",
+          "description": "消费金额"
+        },
+        "kind": {
+          "type": "string",
+          "description": "诉求"
+        }
+      },
+      "refs": {
+        "shop": "shops.id",
+        "handling_shop": "shops.id"
+      }
+    },
+    "events": {
+      "description": "商家自报与实际回执分别保留",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "事件"
+        },
+        "request": {
+          "type": "string",
+          "description": "消费请求"
+        },
+        "kind": {
+          "type": "string",
+          "description": "协商或转总店或退款到账或撤回或调解结项"
+        },
+        "day": {
+          "type": "integer",
+          "description": "实际日"
+        },
+        "source": {
+          "type": "string",
+          "description": "来源"
+        },
+        "state": {
+          "type": "string",
+          "description": "确认或争议"
+        }
+      },
+      "refs": {}
+    },
+    "metric_definitions": {
+      "description": "编辑登记的业务定义；无执行器或预置统计",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "口径"
+        },
+        "concept": {
+          "type": "string",
+          "description": "业务概念"
+        },
+        "numerator": {
+          "type": "string",
+          "description": "分子定义"
+        },
+        "denominator": {
+          "type": "string",
+          "description": "分母定义"
+        },
+        "time_basis": {
+          "type": "string",
+          "description": "时间归属"
+        },
+        "dimensions": {
+          "type": "array",
+          "description": "允许维度"
+        },
+        "effective_day": {
+          "type": "integer",
+          "description": "生效日"
+        }
+      },
+      "refs": {}
+    },
+    "reviews": {
+      "description": "复核不删除请求事实",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "复核"
+        },
+        "target": {
+          "type": "string",
+          "description": "目标"
+        },
+        "kind": {
+          "type": "string",
+          "description": "回执撤销或门店更正"
+        },
+        "finding": {
+          "type": "string",
+          "description": "采用事实"
+        },
+        "known_day": {
+          "type": "integer",
+          "description": "知悉日"
+        }
+      },
+      "refs": {}
+    },
+    "publications": {
+      "description": "历史公开内容",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "发布"
+        },
+        "metric": {
+          "type": "string",
+          "description": "口径"
+        },
+        "shop": {
+          "type": "string",
+          "description": "门店"
+        },
+        "day": {
+          "type": "integer",
+          "description": "发布日"
+        },
+        "content": {
+          "type": "string",
+          "description": "原文"
+        }
+      },
+      "refs": {
+        "metric": "metric_definitions.id",
+        "shop": "shops.id"
+      }
+    },
+    "privacy_rules": {
+      "description": "组合查询保护，极值金额另作受限事实",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "配置"
+        },
+        "min_requests": {
+          "type": "integer",
+          "description": "最小独立请求数"
+        },
+        "amount_bands": {
+          "type": "array",
+          "description": "可公布金额层上界分"
+        }
+      },
+      "refs": {}
+    }
+  }
+}

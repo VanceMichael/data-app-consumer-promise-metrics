@@ -1,0 +1,32 @@
+[
+  {
+    "id": "p1",
+    "shop": "s1",
+    "kind": "退款时效",
+    "channel": "线上",
+    "start_day": 1,
+    "end_day": 31,
+    "deadline_days": 7,
+    "goods_state": "未使用"
+  },
+  {
+    "id": "p2",
+    "shop": "s1",
+    "kind": "调解服务",
+    "channel": "全部",
+    "start_day": 1,
+    "end_day": 61,
+    "deadline_days": 3,
+    "goods_state": "全部"
+  },
+  {
+    "id": "p3",
+    "shop": "s2",
+    "kind": "退款时效",
+    "channel": "线下",
+    "start_day": 1,
+    "end_day": 61,
+    "deadline_days": 5,
+    "goods_state": "未使用"
+  }
+]
